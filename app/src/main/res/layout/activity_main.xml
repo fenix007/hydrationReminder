@@ -26,6 +26,7 @@
             android:layout_height="match_parent"
             android:padding="8dp"
             android:scaleType="fitCenter"
+            android:onClick="incrementCounter"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:src="@drawable/ic_local_drink_grey_120px" />
 
