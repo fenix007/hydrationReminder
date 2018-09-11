@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
     private void updateChargeReminderCount() {
         int reminderCount = PreferenceUtilities.getChargeReminderCount(this);
-        String formattedReminderCount = getResources().getQuantityString(R.plurals.charge_notification_count, reminderCount);
+        String formattedReminderCount = getResources().getQuantityString(R.plurals.charge_notification_count, reminderCount, reminderCount);
         mChargingReminderCountDisplay.setText(formattedReminderCount + "");
     }
 
