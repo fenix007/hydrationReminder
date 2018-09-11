@@ -1,6 +1,12 @@
 <resources>
     <string name="app_name">HydrationReminder</string>
 
+    <plurals name="charge_notification_count">
+        <item quantity="zero">Hydrate while charging reminder sent %d times</item>
+        <item quantity="one">Hydrate while charging reminder sent %d time</item>
+        <item quantity="other">Hydrate while charging reminder sent %d times</item>
+    </plurals>
+
     <string name="default_water_count">0</string>
     <string name="default_charge_notification_count">Hydrate while charging reminder sent 0 times</string>
     <string name="charging_plug_content_desc">charging plug image</string>

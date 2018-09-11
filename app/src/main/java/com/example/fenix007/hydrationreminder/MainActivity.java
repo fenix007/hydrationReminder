@@ -28,6 +28,9 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         mWaterCounterDisplay = (TextView) findViewById(R.id.tv_water_counter);
         mChargingReminderCountDisplay = (TextView) findViewById(R.id.tv_charging_reminder_count);
 
+        updateWaterCounter();
+        updateChargeReminderCount();
+
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         sharedPreferences.registerOnSharedPreferenceChangeListener(this);
     }
@@ -46,12 +49,20 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
         if (PreferenceUtilities.WATER_COUNTER_KEY.equals(key)) {
             updateWaterCounter();
+        } else if (PreferenceUtilities.CHARGE_REMINDER_COUNT.equals(key)) {
+            updateChargeReminderCount();
         }
     }
 
     private void updateWaterCounter() {
         int waterCount = PreferenceUtilities.getWaterCount(this);
         mWaterCounterDisplay.setText(waterCount + "");
+    }
+
+    private void updateChargeReminderCount() {
+        int reminderCount = PreferenceUtilities.getChargeReminderCount(this);
+        String formattedReminderCount = getResources().getQuantityString(R.plurals.charge_notification_count, reminderCount);
+        mChargingReminderCountDisplay.setText(formattedReminderCount + "");
     }
 
     @Override
